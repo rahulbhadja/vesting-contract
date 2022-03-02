@@ -15,16 +15,21 @@ async function main() {
 
   // We get the contract to deploy
   // erc20 contract
+  // DemoAllocations
+
   const Demo = await hre.ethers.getContractFactory('Demo');
-  const demo = await Demo.deploy(
-    'Demo',
-    'DMO',
-    '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266'
+  const demo = await Demo.deploy('Demo', 'DMO');
+
+  const DemoAllocations = await hre.ethers.getContractFactory(
+    'DemoAllocations'
   );
+  const demoAllocations = await DemoAllocations.deploy();
 
   await demo.deployed();
+  await demoAllocations.deployed();
 
   console.log('Demo deployed to:', demo.address);
+  console.log('DemoAllocations deployed to:', demoAllocations.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
