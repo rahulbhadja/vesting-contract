@@ -14,6 +14,7 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
+  // erc20 contract
   const Demo = await hre.ethers.getContractFactory('Demo');
   const demo = await Demo.deploy(
     'Demo',
