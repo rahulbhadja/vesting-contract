@@ -2,6 +2,8 @@
 // OpenZeppelin Contracts v4.3.2 (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
+import "hardhat/console.sol";
+
 
 /******************************************/
 /*           IERC20 starts here           */
@@ -502,7 +504,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
 contract Demo is ERC20 {
 
-    constructor(string memory name, string memory symbol, address _allocationsContract) ERC20(name, symbol) {
-        _mint(_allocationsContract, 125*1e26);
+    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
+        _mint(msg.sender, 60*1e26);
     }
 }
